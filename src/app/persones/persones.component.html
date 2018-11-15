@@ -1,0 +1,24 @@
+<h2>You can find below a list of persons from ConsentAPI. Try to press Delete, Protect and to edit a person.</h2>
+
+<div>
+  <label>Person name:
+    <input #PersonName />
+  </label>
+  <button (click)="add(PersonName.value); PersonName.value=''">
+    add
+  </button>
+</div>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<ul class="Persones">
+  <li *ngFor="let Person of Persones">
+    <div>
+    <a routerLink="/detail/{{Person.id}}">
+      <span class="badge">{{Person.id}}</span> {{Person.title}}
+    </a>
+    <button class="delete" title="delete Person"
+      (click)="delete(Person)">Delete person with the id {{Person.id}}</button>
+        <button  style ="margin-left: 750px; margin-top:0px; width :200px;">Protect person {{Person.id}} <i class="fa fa-lock"></i></button>
+   </div>
+
+  </li>
+</ul>
